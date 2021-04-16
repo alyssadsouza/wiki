@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+<h3>Your search provided the following results:</h3>
+<ul>
+    {% for i in matches %}
+        <li><a href='{% url "title" title=i %}''>{{i}}</a></li>
+        {% empty %}
+        <li>No results found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
